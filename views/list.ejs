@@ -3,14 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>ToDo List</title>
+  <!--CSS-->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
+  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
+  crossorigin="anonymous" 
+  referrerpolicy="no-referrer" />
+  <title>To Do List</title>
 </head>
 <body>
   <div class="todo-container">  
       <header>
-        <h1>ToDo List</h1>
-        <p>It's <%=kindOfDay%> ! </p>
+        <h1>ToDo List </h1>
+        <p>It's <%= kindOfDay %> ! </p>
       </header>
-      
+
+      <form id="todo-form" class="" action="/" method="post">
+          <p>Adicione a sua tarefa:</p>
+          <div class="form-control">
+              <input type="text" name="newItem" id="todo-input" placeholder="Qual será a sua próxima tarefa?" />
+              <button type = "submit">
+                <i class="fa-thin fa-plus"></i>    
+              </button>    
+          </div>    
+      </form>
+
+      <div id="todo-list">
+          <div class="todo">
+              <h3>Estou fazendo algo...</h3>
+              <ul>
+                <% for (var i=0; i<newListItems.length; i++) { %>
+                  <li> <%= newListItems[i] %> </li>
+                <% } %>
+              </ul>
+          </div>
+        </div>
+      </div>
   </div>
 </body>
 </html>
