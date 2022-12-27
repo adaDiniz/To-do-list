@@ -25,6 +25,8 @@ Por fim:
 ```
 nodemon app.js
 ```
+
+O projeto ficará disponível na porta ``http://localhost:3000/``
 ___
 
 Olha só o resultado: 
