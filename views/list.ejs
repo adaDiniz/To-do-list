@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ToDo List</title>
   <!--CSS-->
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <!--Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
   integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
@@ -20,26 +19,28 @@
       </header>
 
       <form id="todo-form" class="" action="/" method="post">
-          <p>Adicione a sua tarefa:</p>
+          <h3>Add your next task:</h3>
           <div class="form-control">
-              <input type="text" name="newItem" id="todo-input" placeholder="Qual será a sua próxima tarefa?" />
+              <input type="text" name="newItem" id="todo-input" placeholder="What will your next task be?" autocomplete="off" />
               <button type = "submit">
-                <i class="fa-thin fa-plus"></i>    
+                <i class="fa-solid fa-plus"></i>    
               </button>    
           </div>    
       </form>
 
       <div id="todo-list">
-          <div class="todo">
-              <h3>Estou fazendo algo...</h3>
-              <ul>
-                <% for (var i=0; i<newListItems.length; i++) { %>
-                  <li> <%= newListItems[i] %> </li>
-                <% } %>
-              </ul>
-          </div>
-        </div>
+        <h3>To do:</h3>
+          <% for (var i=0; i<newListItems.length; i++) { %>
+            <div class="item">
+              <input type="checkbox">
+              <p> <%= newListItems[i] %> </p>
+              <button type = "submit">
+                <i class="fa-solid fa-plus"></i>    
+              </button> 
+            </div>
+          <% } %>
       </div>
+    </div>
   </div>
 </body>
 </html>
