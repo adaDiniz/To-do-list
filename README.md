@@ -14,16 +14,16 @@ Entre na pasta utilizando o comando:
 cd to-do-list
 ```
 
-Com o node instalado na máquina, no terminal:
+Com o node instalado na máquina, instale as dependências utilizando:
 
 ```
 npm i
 ```
 
-Por fim:
+Para rodar no seu localhost utilize no terminal:
 
 ```
-nodemon app.js
+node app.js
 ```
 
 O projeto ficará disponível na porta ``http://localhost:3000/``
