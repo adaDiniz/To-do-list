@@ -31,13 +31,12 @@
       <div id="todo-list">
         <h3>To do:</h3>
           <% newListItems.forEach(function(item) {  %>
-            <div class="item">
-              <input type="checkbox">
-              <p> <%= item.name %> </p>
-              <!-- <button type = "submit">
-                <i class="fa-solid fa-plus"></i>    
-              </button>  -->
-            </div>
+            <form action="/delete" method="post">
+              <div class="item">
+                <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+                <p> <%= item.name %> </p>
+              </div>
+            </form>
           <% }) %>
       </div>
     </div>

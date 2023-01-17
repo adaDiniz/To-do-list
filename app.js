@@ -35,8 +35,6 @@ const defaultItems = [itemOne, itemTwo, itemThree]
 
 
 
-
-
 app.get('/', function(req, res) {
 
   let today = new Date()
@@ -59,7 +57,6 @@ app.get('/', function(req, res) {
       })
       res.redirect("/")
     } else {
-      console.log(foundItems)
       res.render('list', {kindOfDay: day, newListItems: foundItems });
     }  
   })
@@ -67,12 +64,27 @@ app.get('/', function(req, res) {
 })
 
 app.post("/", function(req, res) {
-  let item = req.body.newItem 
-  if (item.length > 0){
-    items.push(item)
-    console.log(item)
-    res.redirect("/")
-  }
+  let itemName = req.body.newItem 
+  
+  const newItem = new Item ({
+    name: itemName
+  })
+
+  newItem.save()
+
+  res.redirect("/")
+})
+
+app.post("/delete", function(req, res) {
+  const checkedItemId = req.body.checkbox
+  Item.findByIdAndRemove(checkedItemId, function(err){
+    if(err) {
+      console.log(err)
+    } else {
+      console.log("Item deleted")
+    }   
+  })
+  res.redirect("/")
 })
 
 app.listen(3000, function() {

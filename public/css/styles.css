@@ -92,15 +92,21 @@ input {
   border-radius: 0.5rem;
 }
 
+#todo-list form {
+  border-bottom: 1px solid #F1F1F1;
+}
+
 .item {
   display: flex;
   width: 100%;
   align-items: center;
-  border-bottom: 1px solid #F1F1F1;
 }
 
+.item p{
+  margin: 5px 0;
+}
 
-.item:last-child {
+#todo-list form:last-child {
   border-bottom: 0;
 }
 
