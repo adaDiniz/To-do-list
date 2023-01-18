@@ -119,3 +119,19 @@ input[type="checkbox"] {
   margin: 15px;
   width: auto;
 }
+
+footer{
+  height: 40px;
+  background-color: #3e838c;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  text-align: center;
+  align-items: center;
+  padding-top: 15px;
+  font-size: 10px;
+  color: #fff;
+}

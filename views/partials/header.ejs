@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--CSS-->
+  <link rel="stylesheet" href="css/styles.css">
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
+  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
+  crossorigin="anonymous" 
+  referrerpolicy="no-referrer" />
+  <title>To Do List</title>
+</head>
+<body>
+  
+  <div class="todo-container">  
+    <% if(lists.length > 0) { %>
+      <nav>
+        <ul class="">
+          <li id="home"><a href="/">HOME</a></li>
+          <% lists.forEach(function(list) {  %>
+            <li id="<%=list%>"><a href="/<%=list%>"><%=list%></a></li>
+          <% }) %>
+          
+        </ul>
+      </nav>
+    <% } %>
+      
+      <header>
+        <h2>ToDo List </h2>
+        <h3><%=listTitle%></h3>
+        <p>It's <%=kindOfDay%> ! </p>
+      </header>

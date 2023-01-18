@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <!--CSS-->
-  <link rel="stylesheet" href="css/styles.css">
-  <!--Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
-  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
-  crossorigin="anonymous" 
-  referrerpolicy="no-referrer" />
-  <title>To Do List</title>
-</head>
-<body>
-  <div class="todo-container">  
-      <header>
-        <h1>ToDo List </h1>
-        <p>It's <%= kindOfDay %> ! </p>
-      </header>
+<%- include('partials/header'); -%>
 
       <form id="todo-form" class="" action="/" method="post">
           <h3>Add your next task:</h3>
           <div class="form-control">
               <input type="text" name="newItem" id="todo-input" placeholder="What will your next task be?" autocomplete="off" />
-              <button type = "submit">
+              <button type = "submit" name="listName" value="<%-listTitle%>">
                 <i class="fa-solid fa-plus"></i>    
               </button>    
           </div>    
-      </form>
+        </form>
 
       <div id="todo-list">
         <h3>To do:</h3>
@@ -36,10 +18,22 @@
                 <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
                 <p> <%= item.name %> </p>
               </div>
+              <input type="hidden" name="listName" value="<%-listTitle%>"></input>
             </form>
           <% }) %>
       </div>
+
+      <% if(listTitle.length === 0) { %>
+        <form id="todo-form" class="" action="/createList" method="post">
+          <h3>Create a new list:</h3>
+          <div class="form-control">
+              <input type="text" name="newList" id="todo-input" placeholder="Name of your new list" autocomplete="off" />
+              <button type = "submit">
+                <i class="fa-solid fa-plus"></i>    
+              </button>    
+          </div>    
+        </form>
+      <% } %>
     </div>
-  </div>
-</body>
-</html>
+
+<%- include('partials/footer'); -%>
