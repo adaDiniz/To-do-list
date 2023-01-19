@@ -13,19 +13,18 @@
 </head>
 <body>
   
+  <% if(lists.length > 0) { %>
+    <nav>
+      <ul class="">
+        <li id="home"><a href="/">HOME</a></li>
+        <% lists.forEach(function(list) {  %>
+          <li id="<%=list.name%>"><a href="/<%=list.name%>"><%=list.name%></a></li>
+        <% }) %>
+        
+      </ul>
+    </nav>
+  <% } %>
   <div class="todo-container">  
-    <% if(lists.length > 0) { %>
-      <nav>
-        <ul class="">
-          <li id="home"><a href="/">HOME</a></li>
-          <% lists.forEach(function(list) {  %>
-            <li id="<%=list%>"><a href="/<%=list%>"><%=list%></a></li>
-          <% }) %>
-          
-        </ul>
-      </nav>
-    <% } %>
-      
       <header>
         <h2>ToDo List </h2>
         <h3><%=listTitle%></h3>

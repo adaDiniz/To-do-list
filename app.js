@@ -47,9 +47,6 @@ let today = new Date()
 
 let day = today.toLocaleDateString("en-US", options)
 
-const lists = []
-
-
 app.get('/', function(req, res) {
 
   Item.find({}, function(err, foundItems) {
@@ -61,7 +58,9 @@ app.get('/', function(req, res) {
       })
       res.redirect("/")
     } else {
-      res.render('list', {lists: lists, listTitle: "", kindOfDay: day, newListItems: foundItems });
+      List.find({}, function(err, foundLists) {
+        res.render('list', {lists: foundLists, listTitle: "", kindOfDay: day, newListItems: foundItems });
+      })
     }  
   })
 })
@@ -72,15 +71,14 @@ app.get("/:customListName", function(req, res) {
   List.findOne({name: customListName}, function(err, foundItems) {
     if(!err){ 
       if(foundItems) {
-        res.render("list", {lists: lists, listTitle: foundItems.name, kindOfDay: day, newListItems: foundItems.items})
+        List.find({}, function(err, foundLists) {  
+          res.render("list", {lists: foundLists, listTitle: foundItems.name, kindOfDay: day, newListItems: foundItems.items})
+        })
+      } else {
+        console.log(err);
       }
-    } else {
-      console.log(err);
     }
-    
   })
-  
-
 })
 
 app.post("/", function(req, res) {
@@ -138,7 +136,6 @@ app.post("/createList", function(req, res) {
           items: defaultItems
         })
         list.save()
-        lists.push(listName)
         res.redirect("/" + listName)
       } else {
         res.redirect("/" + listName)

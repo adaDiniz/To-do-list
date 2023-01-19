@@ -15,6 +15,36 @@ body {
   background-attachment: fixed;
 }
 
+nav {
+  background-color: #ffffff49;;
+  height: 35px;
+  align-items: center;
+}
+
+ul{
+
+  display: flex;
+  width: 50%;
+  margin: auto;
+  padding-top: 10px;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #3e838c;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: darkgoldenrod;
+}
+
 button {
   background-color: #3e838c;
   padding: 0.3rem 0.6rem;
@@ -122,7 +152,7 @@ input[type="checkbox"] {
 
 footer{
   height: 40px;
-  background-color: #3e838c;
+  background-color: #144e52d0;
   position: fixed;
   bottom: 0;
   width: 100%;
