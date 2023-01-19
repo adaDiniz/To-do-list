@@ -72,7 +72,9 @@ app.get("/:customListName", function(req, res) {
     if(!err){ 
       if(foundItems) {
         List.find({}, function(err, foundLists) {  
-          res.render("list", {lists: foundLists, listTitle: foundItems.name, kindOfDay: day, newListItems: foundItems.items})
+          if(!err){
+            res.render("list", {lists: foundLists, listTitle: foundItems.name, kindOfDay: day, newListItems: foundItems.items})
+          }  
         })
       } else {
         console.log(err);
@@ -136,12 +138,10 @@ app.post("/createList", function(req, res) {
           items: defaultItems
         })
         list.save()
-        res.redirect("/" + listName)
-      } else {
-        res.redirect("/" + listName)
       }
     }
   })
+  res.redirect("/" + listName)
 })
 
 app.listen(3000, function() {
