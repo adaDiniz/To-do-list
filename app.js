@@ -137,11 +137,15 @@ app.post("/createList", function(req, res) {
           name: listName,
           items: defaultItems
         })
-        list.save()
-      }
+        
+        list.save(function(err){
+          if (!err){
+            res.redirect("/"+ listName);
+          }
+        });
+      } 
     }
   })
-  res.redirect("/" + listName)
 })
 
 app.listen(3000, function() {
